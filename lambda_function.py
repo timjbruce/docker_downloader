@@ -19,7 +19,6 @@ def lambda_handler(event, context):
         ExpressionAttributeValues=expressionattributevalues)
     print(files)
     for file in files['Items']:
-        print(file['FilenameURL']['S'])
         shortfile = file['FilenameURL']['S'][file['FilenameURL']['S'].rfind('/')+1:]
         fullfile = '/tmp/' + shortfile
         response = requests.get(file['FilenameURL']['S'])
