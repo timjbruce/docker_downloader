@@ -22,7 +22,7 @@ def lambda_handler(event, context):
         print(file['FilenameURL']['S'])
         shortfile = file['FilenameURL']['S'][file['FilenameURL']['S'].rfind('/')+1:]
         fullfile = '/tmp/' + shortfile
-        response = requests.get(file.FilenameURL)
+        response = requests.get(file['FilenameURL']['S'])
         if response.code == 200:
             open(fullfile, 'wb').write(response.content)
             s3.put_object(Body=fullfile, Bucket='awstb-useast2-datacopy', Key=shortfile)
