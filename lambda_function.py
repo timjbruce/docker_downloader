@@ -22,7 +22,7 @@ def lambda_handler(event, context):
         shortfile = file['FilenameURL']['S'][file['FilenameURL']['S'].rfind('/')+1:]
         fullfile = '/tmp/' + shortfile
         response = requests.get(file['FilenameURL']['S'])
-        if response.code == 200:
+        if response.status_code == 200:
             open(fullfile, 'wb').write(response.content)
             s3.put_object(Body=fullfile, Bucket='awstb-useast2-datacopy', Key=shortfile)
             #could delete file in dynamodb
