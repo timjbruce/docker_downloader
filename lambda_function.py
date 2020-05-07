@@ -35,7 +35,7 @@ def container_start():
     #create an event and context that is like that passed in from Step Functions
     event = {}
     context = {}
-    event['name']=sys.argv[1]
+    event['name']=str(sys.argv[1])
     #call lambda_handler
     response = lambda_handler(event, context)
     return response
