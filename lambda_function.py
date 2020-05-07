@@ -13,6 +13,7 @@ def lambda_handler(event, context):
 
     keyconditionexpression = 'URI = :val1'
     expressionattributevalues = {':val1':URI}
+    print(expressionattributevalues)
     files = dynamodb.query(TableName=filetable, Limit=100,
         KeyConditionExpression=keyconditionexpression,
         ExpressionAttributeValues=expressionattributevalues)
