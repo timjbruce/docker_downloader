@@ -4,7 +4,7 @@ import os
 import requests
 import sys
 
-dynamodb = boto3.resource('dynamodb', region_name='us-east-2')
+dynamodb = boto3.client('dynamodb', region_name='us-east-2')
 filetable = os.getenv('FileTable', 'CallbackFiles')
 s3 = boto3.client('s3', region_name='us-east-2')
 def lambda_handler(event, context):
