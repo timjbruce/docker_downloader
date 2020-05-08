@@ -40,7 +40,7 @@ def container_start(argv):
     context = {}
     event['name']=str(argv[1])
     #call lambda_handler
-    print(f'calling download function with {event}')
+    print('calling download function with : ' + event)
     response = lambda_handler(event, context)
     return response
 
