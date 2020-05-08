@@ -34,9 +34,12 @@ def lambda_handler(event, context):
     
 def container_start():
     #create an event and context that is like that passed in from Step Functions
+    print('started container')
+    print(sys.argv)
     event = {}
     context = {}
     event['name']=str(sys.argv[1])
     #call lambda_handler
+    print(f'calling download function with {event}')
     response = lambda_handler(event, context)
     return response
